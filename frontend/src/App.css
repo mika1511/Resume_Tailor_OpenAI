@@ -1,0 +1,222 @@
+/* Base styles */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #090e18;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem 1rem;
+  overflow-x: hidden;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  width: 200px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  z-index: 0;
+  animation: float 6s ease-in-out infinite;
+}
+
+body::after {
+  content: '';
+  position: absolute;
+  bottom: -50px;
+  right: -50px;
+  width: 300px;
+  height: 300px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  z-index: 0;
+  animation: float 8s ease-in-out infinite reverse;
+}
+
+/* Main container */
+.app-container {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+  max-width: 700px;
+  width: 100%;
+  padding: 2.5rem 3rem;
+  animation: fadeIn 0.8s ease forwards;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.app-container::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  opacity: 0.2;
+  border-radius: 50%;
+  z-index: -1;
+}
+
+/* Headings */
+h2 {
+  font-weight: 700;
+  font-size: 1.8rem;
+  margin-bottom: 1.2rem;
+  background: linear-gradient(90deg, #090e18, #290a48);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+h2::before {
+  content: '✨';
+  font-size: 1.5rem;
+}
+
+/* Textarea & Inputs */
+textarea, input[type="text"], input[type="file"] {
+  width: 100%;
+  padding: 1rem 1.2rem;
+  border: 2px solid #667eea;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+  color: #2d3748;
+  box-shadow: inset 0 0 6px rgba(102, 126, 234, 0.15);
+  background: #f7f9fc;
+}
+
+textarea::placeholder {
+  color: #a0aec0;
+  font-style: italic;
+}
+
+textarea:focus, input[type="text"]:focus, input[type="file"]:focus {
+  border-color: #764ba2;
+  box-shadow: 0 0 10px #764ba2;
+  outline: none;
+}
+
+/* Buttons */
+button {
+  background: linear-gradient(90deg, #764ba2, #667eea);
+  color: white;
+  padding: 0.85rem 2rem;
+  border: none;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 8px 15px rgba(118, 75, 162, 0.4);
+  transition: all 0.3s ease;
+  margin-top: 1.5rem;
+  display: inline-block;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+button:hover {
+  background: linear-gradient(90deg, #5a3b9e, #4b3582);
+  box-shadow: 0 12px 24px rgba(75, 53, 130, 0.6);
+  transform: translateY(-3px);
+}
+
+button::before {
+  content: '🚀';
+  font-size: 1.2rem;
+}
+
+/* Suggestions Panel */
+.suggestion-card {
+  background: #e0d7f5;
+  border-radius: 14px;
+  padding: 1.3rem 1.6rem;
+  margin-bottom: 1.2rem;
+  box-shadow: 0 6px 15px rgba(102, 126, 234, 0.25);
+  transition: background 0.3s ease, transform 0.3s ease;
+  position: relative;
+}
+
+.suggestion-card:hover {
+  background: #d4c3f2;
+  transform: translateY(-5px);
+}
+
+.suggestion-card::before {
+  content: '💡';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  font-size: 1.5rem;
+  opacity: 0.2;
+}
+
+.suggestion-original {
+  font-weight: 600;
+  color: #3c366b;
+  margin-bottom: 0.3rem;
+}
+
+.suggestion-suggested {
+  color: #5a3b9e;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.suggestion-reason {
+  font-style: italic;
+  color: #6b5b95;
+  font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .app-container {
+    padding: 1.8rem 2rem;
+  }
+
+  button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
